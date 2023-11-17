@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище PhoneModelContainer" CdmEntityContainer="PhoneEntities">
+    <EntitySetMapping Name="dtproperties">
+      <EntityTypeMapping TypeName="PhoneModel.dtproperties">
+        <MappingFragment StoreEntitySet="dtproperties">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="objectid" ColumnName="objectid" />
+          <ScalarProperty Name="property" ColumnName="property" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+          <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="link_main">
+      <EntityTypeMapping TypeName="PhoneModel.link_main">
+        <MappingFragment StoreEntitySet="link_main">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="Href" ColumnName="Href" />
+          <ScalarProperty Name="HrefText" ColumnName="HrefText" />
+          <ScalarProperty Name="Annotation" ColumnName="Annotation" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="msrepl_synctran_ts" ColumnName="msrepl_synctran_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="link_parts">
+      <EntityTypeMapping TypeName="PhoneModel.link_parts">
+        <MappingFragment StoreEntitySet="link_parts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="PartName" ColumnName="PartName" />
+          <ScalarProperty Name="PartImg" ColumnName="PartImg" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="msrepl_synctran_ts" ColumnName="msrepl_synctran_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="link_type">
+      <EntityTypeMapping TypeName="PhoneModel.link_type">
+        <MappingFragment StoreEntitySet="link_type">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="TypeImg" ColumnName="TypeImg" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="msrepl_synctran_ts" ColumnName="msrepl_synctran_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ph_department">
+      <EntityTypeMapping TypeName="PhoneModel.ph_department">
+        <MappingFragment StoreEntitySet="ph_department">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ENTID" ColumnName="ENTID" />
+          <ScalarProperty Name="DepName" ColumnName="DepName" />
+          <ScalarProperty Name="DepShortName" ColumnName="DepShortName" />
+          <ScalarProperty Name="KAT" ColumnName="KAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ph_enterprise">
+      <EntityTypeMapping TypeName="PhoneModel.ph_enterprise">
+        <MappingFragment StoreEntitySet="ph_enterprise">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EntName" ColumnName="EntName" />
+          <ScalarProperty Name="EntShortName" ColumnName="EntShortName" />
+          <ScalarProperty Name="EntAddress" ColumnName="EntAddress" />
+          <ScalarProperty Name="EntPhoneKod" ColumnName="EntPhoneKod" />
+          <ScalarProperty Name="ParentGptn" ColumnName="ParentGptn" />
+          <ScalarProperty Name="KAT" ColumnName="KAT" />
+          <ScalarProperty Name="LEV" ColumnName="LEV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ph_main">
+      <EntityTypeMapping TypeName="PhoneModel.ph_main">
+        <MappingFragment StoreEntitySet="ph_main">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DEPID" ColumnName="DEPID" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="Dolzhnost" ColumnName="Dolzhnost" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HomePhoneCity" ColumnName="HomePhoneCity" />
+          <ScalarProperty Name="WorkPhoneCity" ColumnName="WorkPhoneCity" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Peiger" ColumnName="Peiger" />
+          <ScalarProperty Name="PhotoImg" ColumnName="PhotoImg" />
+          <ScalarProperty Name="BirthDayDate" ColumnName="BirthDayDate" />
+          <ScalarProperty Name="StartWorkDate" ColumnName="StartWorkDate" />
+          <ScalarProperty Name="KAT" ColumnName="KAT" />
+          <ScalarProperty Name="PImage" ColumnName="PImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phone">
+      <EntityTypeMapping TypeName="PhoneModel.Phone">
+        <MappingFragment StoreEntitySet="Phone">
+          <ScalarProperty Name="IDP" ColumnName="IDP" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone" />
+          <ScalarProperty Name="Doljnost" ColumnName="Doljnost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_News">
+      <EntityTypeMapping TypeName="PhoneModel.S_News">
+        <MappingFragment StoreEntitySet="S_News">
+          <ScalarProperty Name="ID_News" ColumnName="ID_News" />
+          <ScalarProperty Name="News_Date" ColumnName="News_Date" />
+          <ScalarProperty Name="N_News" ColumnName="N_News" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="L_Akt" ColumnName="L_Akt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bd_remain">
+      <EntityTypeMapping TypeName="PhoneModel.bd_remain">
+        <MappingFragment StoreEntitySet="bd_remain">
+          <ScalarProperty Name="PHID" ColumnName="PHID" />
+          <ScalarProperty Name="DEPID" ColumnName="DEPID" />
+          <ScalarProperty Name="ENTID" ColumnName="ENTID" />
+          <ScalarProperty Name="EntName" ColumnName="EntName" />
+          <ScalarProperty Name="EntShortName" ColumnName="EntShortName" />
+          <ScalarProperty Name="EntAddress" ColumnName="EntAddress" />
+          <ScalarProperty Name="EntPhoneKod" ColumnName="EntPhoneKod" />
+          <ScalarProperty Name="ParentGptn" ColumnName="ParentGptn" />
+          <ScalarProperty Name="DepName" ColumnName="DepName" />
+          <ScalarProperty Name="DepShortName" ColumnName="DepShortName" />
+          <ScalarProperty Name="Dolzhnost" ColumnName="Dolzhnost" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="WorkPhoneCity" ColumnName="WorkPhoneCity" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HomePhoneCity" ColumnName="HomePhoneCity" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Peiger" ColumnName="Peiger" />
+          <ScalarProperty Name="BirthDayDate" ColumnName="BirthDayDate" />
+          <ScalarProperty Name="StartWorkDate" ColumnName="StartWorkDate" />
+          <ScalarProperty Name="PhotoImg" ColumnName="PhotoImg" />
+          <ScalarProperty Name="FullInfo" ColumnName="FullInfo" />
+          <ScalarProperty Name="DEPKAT" ColumnName="DEPKAT" />
+          <ScalarProperty Name="ENTKAT" ColumnName="ENTKAT" />
+          <ScalarProperty Name="KAT" ColumnName="KAT" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="RemainDay" ColumnName="RemainDay" />
+          <ScalarProperty Name="DateThisYear" ColumnName="DateThisYear" />
+          <ScalarProperty Name="BDay" ColumnName="BDay" />
+          <ScalarProperty Name="BMonth" ColumnName="BMonth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="link_typepart">
+      <EntityTypeMapping TypeName="PhoneModel.link_typepart">
+        <MappingFragment StoreEntitySet="link_typepart">
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="PartName" ColumnName="PartName" />
+          <ScalarProperty Name="TypePartName" ColumnName="TypePartName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ph_birth">
+      <EntityTypeMapping TypeName="PhoneModel.ph_birth">
+        <MappingFragment StoreEntitySet="ph_birth">
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="Dolzhnost" ColumnName="Dolzhnost" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="DepShortName" ColumnName="DepShortName" />
+          <ScalarProperty Name="EntShortName" ColumnName="EntShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ph_infoview">
+      <EntityTypeMapping TypeName="PhoneModel.ph_infoview">
+        <MappingFragment StoreEntitySet="ph_infoview">
+          <ScalarProperty Name="PHID" ColumnName="PHID" />
+          <ScalarProperty Name="DEPID" ColumnName="DEPID" />
+          <ScalarProperty Name="ENTID" ColumnName="ENTID" />
+          <ScalarProperty Name="EntName" ColumnName="EntName" />
+          <ScalarProperty Name="EntShortName" ColumnName="EntShortName" />
+          <ScalarProperty Name="EntAddress" ColumnName="EntAddress" />
+          <ScalarProperty Name="EntPhoneKod" ColumnName="EntPhoneKod" />
+          <ScalarProperty Name="ParentGptn" ColumnName="ParentGptn" />
+          <ScalarProperty Name="DepName" ColumnName="DepName" />
+          <ScalarProperty Name="DepShortName" ColumnName="DepShortName" />
+          <ScalarProperty Name="Dolzhnost" ColumnName="Dolzhnost" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="WorkPhoneCity" ColumnName="WorkPhoneCity" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HomePhoneCity" ColumnName="HomePhoneCity" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Peiger" ColumnName="Peiger" />
+          <ScalarProperty Name="BirthDayDate" ColumnName="BirthDayDate" />
+          <ScalarProperty Name="StartWorkDate" ColumnName="StartWorkDate" />
+          <ScalarProperty Name="PhotoImg" ColumnName="PhotoImg" />
+          <ScalarProperty Name="FullInfo" ColumnName="FullInfo" />
+          <ScalarProperty Name="DEPKAT" ColumnName="DEPKAT" />
+          <ScalarProperty Name="ENTKAT" ColumnName="ENTKAT" />
+          <ScalarProperty Name="KAT" ColumnName="KAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="aaa" FunctionName="Хранилище PhoneModel.aaa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PhoneModel.aaa_Result">
+          <ScalarProperty Name="ID_News" ColumnName="ID_News" />
+          <ScalarProperty Name="News_Date" ColumnName="News_Date" />
+          <ScalarProperty Name="N_News" ColumnName="N_News" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="L_Akt" ColumnName="L_Akt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="dt_addtosourcecontrol" FunctionName="Хранилище PhoneModel.dt_addtosourcecontrol" />
+    <FunctionImportMapping FunctionImportName="dt_addtosourcecontrol_u" FunctionName="Хранилище PhoneModel.dt_addtosourcecontrol_u" />
+    <FunctionImportMapping FunctionImportName="dt_adduserobject" FunctionName="Хранилище PhoneModel.dt_adduserobject" />
+    <FunctionImportMapping FunctionImportName="dt_adduserobject_vcs" FunctionName="Хранилище PhoneModel.dt_adduserobject_vcs" />
+    <FunctionImportMapping FunctionImportName="dt_checkinobject" FunctionName="Хранилище PhoneModel.dt_checkinobject" />
+    <FunctionImportMapping FunctionImportName="dt_checkinobject_u" FunctionName="Хранилище PhoneModel.dt_checkinobject_u" />
+    <FunctionImportMapping FunctionImportName="dt_checkoutobject" FunctionName="Хранилище PhoneModel.dt_checkoutobject" />
+    <FunctionImportMapping FunctionImportName="dt_checkoutobject_u" FunctionName="Хранилище PhoneModel.dt_checkoutobject_u" />
+    <FunctionImportMapping FunctionImportName="dt_displayoaerror" FunctionName="Хранилище PhoneModel.dt_displayoaerror" />
+    <FunctionImportMapping FunctionImportName="dt_displayoaerror_u" FunctionName="Хранилище PhoneModel.dt_displayoaerror_u" />
+    <FunctionImportMapping FunctionImportName="dt_droppropertiesbyid" FunctionName="Хранилище PhoneModel.dt_droppropertiesbyid" />
+    <FunctionImportMapping FunctionImportName="dt_dropuserobjectbyid" FunctionName="Хранилище PhoneModel.dt_dropuserobjectbyid" />
+    <FunctionImportMapping FunctionImportName="dt_generateansiname" FunctionName="Хранилище PhoneModel.dt_generateansiname" />
+    <FunctionImportMapping FunctionImportName="dt_getobjwithprop" FunctionName="Хранилище PhoneModel.dt_getobjwithprop" />
+    <FunctionImportMapping FunctionImportName="dt_getobjwithprop_u" FunctionName="Хранилище PhoneModel.dt_getobjwithprop_u" />
+    <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid" FunctionName="Хранилище PhoneModel.dt_getpropertiesbyid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PhoneModel.dt_getpropertiesbyid_Result">
+          <ScalarProperty Name="property" ColumnName="property" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_u" FunctionName="Хранилище PhoneModel.dt_getpropertiesbyid_u">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PhoneModel.dt_getpropertiesbyid_u_Result">
+          <ScalarProperty Name="property" ColumnName="property" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+          <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_vcs" FunctionName="Хранилище PhoneModel.dt_getpropertiesbyid_vcs" />
+    <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_vcs_u" FunctionName="Хранилище PhoneModel.dt_getpropertiesbyid_vcs_u" />
+    <FunctionImportMapping FunctionImportName="dt_isundersourcecontrol" FunctionName="Хранилище PhoneModel.dt_isundersourcecontrol" />
+    <FunctionImportMapping FunctionImportName="dt_isundersourcecontrol_u" FunctionName="Хранилище PhoneModel.dt_isundersourcecontrol_u" />
+    <FunctionImportMapping FunctionImportName="dt_removefromsourcecontrol" FunctionName="Хранилище PhoneModel.dt_removefromsourcecontrol" />
+    <FunctionImportMapping FunctionImportName="dt_setpropertybyid" FunctionName="Хранилище PhoneModel.dt_setpropertybyid" />
+    <FunctionImportMapping FunctionImportName="dt_setpropertybyid_u" FunctionName="Хранилище PhoneModel.dt_setpropertybyid_u" />
+    <FunctionImportMapping FunctionImportName="dt_validateloginparams" FunctionName="Хранилище PhoneModel.dt_validateloginparams" />
+    <FunctionImportMapping FunctionImportName="dt_validateloginparams_u" FunctionName="Хранилище PhoneModel.dt_validateloginparams_u" />
+    <FunctionImportMapping FunctionImportName="dt_vcsenabled" FunctionName="Хранилище PhoneModel.dt_vcsenabled" />
+    <FunctionImportMapping FunctionImportName="dt_verstamp006" FunctionName="Хранилище PhoneModel.dt_verstamp006" />
+    <FunctionImportMapping FunctionImportName="dt_verstamp007" FunctionName="Хранилище PhoneModel.dt_verstamp007" />
+    <FunctionImportMapping FunctionImportName="dt_whocheckedout" FunctionName="Хранилище PhoneModel.dt_whocheckedout" />
+    <FunctionImportMapping FunctionImportName="dt_whocheckedout_u" FunctionName="Хранилище PhoneModel.dt_whocheckedout_u" />
+  </EntityContainerMapping>
+</Mapping>

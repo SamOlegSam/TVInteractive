@@ -1,0 +1,37 @@
+﻿<a style="font-size:200%" class="dropbtn btn btn-primary btn-lg" href="/Home/Onewindow/">назад</a>
+<center><h2>Нормативная документация</h2></center>
+<hr>
+
+<a a style="font-size:200%" href="https://www.belneftekhim.by/one_window/docs/a38aec70fffaee80.html" >Указ Президента Республики Беларусь от 15 октября 2007 г. № 498 «О дополнительных мерах по работе с обращениями граждан и юридических лиц»</a> 
+ 
+<br />
+<br />
+ <a a style="font-size:200%" href="https://www.belneftekhim.by/one_window/docs/a013af9953351483.html" >Директива Президента Республики Беларусь от 27 декабря 2006 г. №2 «О мерах по дальнейшей дебюрократизации государственного аппарата»</a> 
+<br />
+ <br />
+<a a style="font-size:200%" href="https://www.belneftekhim.by/one_window/docs/a2dd305b22f45f91.html" >Закон Республики Беларусь от 18 июля 2011 года № 300-З «Об обращениях граждан и юридических лиц»</a>
+ <br />
+<br />
+<a a style="font-size:200%" href="http://www.pravo.by/document/?guid=3871&p0=c21200667" >Постановление Совета Министров Республики Беларусь от 23 июля 2012 г. № <acronym>667 «</acronym>О некоторых вопросах работы с обращениями граждан и юридических лиц»</a> 
+ 
+<br />
+
+<script type="text/javascript">
+        var no_active_delay = 600; // Количество секунд простоя мыши, при котором пользователь считается неактивным
+        var now_no_active = 0; // Текущее количество секунд простоя мыши
+        setInterval("now_no_active++;", 1000); // Каждую секунду увеличиваем количество секунд простоя мыши
+        setInterval("updateChat()", 1000); // Запускаем функцию updateChat() через определённый интервал
+        document.ontouchend = activeUser; // Ставим обработчик на движение курсора мыши
+  function activeUser() {
+            now_no_active = 0; // Обнуляем счётчик простоя секунд
+      }
+  function updateChat() {
+      if (now_no_active >= no_active_delay) { // Проверяем не превышен ли "предел активности" пользователя
+        window.location = '/Home/Index';
+            
+        return;
+      }
+      /* Обновляем чат */
+    }
+</script>
+

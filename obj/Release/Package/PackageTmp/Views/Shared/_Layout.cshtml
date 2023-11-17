@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ОАО Гомельтранснефть Дружба</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="grad">
+    <style>
+        .grad {
+            background-image: url(/images/background1.jpg);
+            background-repeat: round;
+        }
+    </style>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            /*background-color: #F0F8FF;*/
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 20px 20px 20px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #fcfcfc;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #080000;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+    </style>
+
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" style="color:black; margin-left:180px;  font-weight:100" onclick="closeNav()">	&#10060;</a>
+
+        <a class="dropbtn btn btn-primary btn-lg" href="/Home/Index/">Главная</a>
+        <p></p>
+        <a class="dropbtn btn btn-primary btn-lg" href="/Home/Phone/">Телефоны</a>
+        <p></p>
+        <a class="dropbtn btn btn-primary btn-lg" href="/Home/History/">История</a>
+        <p></p>
+        <a class="dropbtn btn btn-primary btn-lg" href="/Home/Video/">Фильм</a>
+        <p></p>
+        <a class="dropbtn btn btn-primary btn-lg" href="/Home/Administration/">Руководство</a>
+        <p></p>
+        <a class="dropbtn btn btn-primary btn-lg" href="/Home/Onewindow/">Одно окно</a>
+    </div>
+
+    
+    <span  style="position:initial; font-size:90px; cursor:pointer; margin-left:15px;" onclick="openNav()">&#9776;</span>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Информация", "About", "Home")</li>
+                        <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <center><p>&copy; @DateTime.Now.Year - ОАО Гомельтранснефть Дружба</p></center>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/TV.js"></script>
+</body>
+</html>

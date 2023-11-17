@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PhoneModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="dtproperties">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="objectid" Type="int" />
+    <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="255" />
+    <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+    <Property Name="lvalue" Type="image" />
+    <Property Name="version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="link_main">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PARTID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Href" Type="varchar" MaxLength="200" />
+    <Property Name="HrefText" Type="varchar" MaxLength="200" />
+    <Property Name="Annotation" Type="varchar" MaxLength="255" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="msrepl_synctran_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="link_parts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TYPEID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PartName" Type="varchar" MaxLength="50" />
+    <Property Name="PartImg" Type="varchar" MaxLength="50" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="msrepl_synctran_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="link_type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TypeName" Type="varchar" MaxLength="50" />
+    <Property Name="TypeImg" Type="varchar" MaxLength="50" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="msrepl_synctran_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ph_department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ENTID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DepName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepShortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KAT" Type="int" />
+  </EntityType>
+  <EntityType Name="ph_enterprise">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EntName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EntShortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EntPhoneKod" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ParentGptn" Type="int" Nullable="false" />
+    <Property Name="KAT" Type="int" />
+    <Property Name="LEV" Type="int" />
+  </EntityType>
+  <EntityType Name="ph_main">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DEPID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FIO" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Dolzhnost" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HomePhoneCity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkPhoneCity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Peiger" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhotoImg" Type="varchar" MaxLength="150" />
+    <Property Name="BirthDayDate" Type="datetime" />
+    <Property Name="StartWorkDate" Type="datetime" />
+    <Property Name="KAT" Type="int" />
+    <Property Name="PImage" Type="image" />
+  </EntityType>
+  <EntityType Name="Phone">
+    <Key>
+      <PropertyRef Name="IDP" />
+    </Key>
+    <Property Name="IDP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="nchar" MaxLength="100" />
+    <Property Name="WorkPhone" Type="nchar" MaxLength="50" />
+    <Property Name="Phone" Type="nchar" MaxLength="50" />
+    <Property Name="Doljnost" Type="nchar" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="S_News">
+    <Key>
+      <PropertyRef Name="ID_News" />
+    </Key>
+    <Property Name="ID_News" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="News_Date" Type="datetime" Nullable="false" />
+    <Property Name="N_News" Type="varchar" MaxLength="8000" />
+    <Property Name="Type" Type="int" />
+    <Property Name="L_Akt" Type="bit" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Phone.dbo.bd_remain" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="bd_remain">
+    <Key>
+      <PropertyRef Name="PHID" />
+      <PropertyRef Name="DEPID" />
+      <PropertyRef Name="ENTID" />
+      <PropertyRef Name="EntName" />
+      <PropertyRef Name="EntShortName" />
+      <PropertyRef Name="EntAddress" />
+      <PropertyRef Name="EntPhoneKod" />
+      <PropertyRef Name="ParentGptn" />
+      <PropertyRef Name="DepName" />
+      <PropertyRef Name="DepShortName" />
+      <PropertyRef Name="Dolzhnost" />
+      <PropertyRef Name="FIO" />
+      <PropertyRef Name="WorkPhoneCity" />
+      <PropertyRef Name="WorkPhone" />
+      <PropertyRef Name="HomePhoneCity" />
+      <PropertyRef Name="HomePhone" />
+      <PropertyRef Name="EMail" />
+      <PropertyRef Name="Peiger" />
+      <PropertyRef Name="FullInfo" />
+    </Key>
+    <Property Name="PHID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DEPID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ENTID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EntName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EntShortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EntPhoneKod" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="ParentGptn" Type="int" Nullable="false" />
+    <Property Name="DepName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepShortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dolzhnost" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="FIO" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="WorkPhoneCity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HomePhoneCity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Peiger" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BirthDayDate" Type="datetime" />
+    <Property Name="StartWorkDate" Type="datetime" />
+    <Property Name="PhotoImg" Type="varchar" MaxLength="50" />
+    <Property Name="FullInfo" Type="varchar" MaxLength="923" Nullable="false" />
+    <Property Name="DEPKAT" Type="int" />
+    <Property Name="ENTKAT" Type="int" />
+    <Property Name="KAT" Type="int" />
+    <Property Name="Age" Type="int" />
+    <Property Name="RemainDay" Type="int" />
+    <Property Name="DateThisYear" Type="datetime" />
+    <Property Name="BDay" Type="int" />
+    <Property Name="BMonth" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Phone.dbo.link_typepart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="link_typepart">
+    <Key>
+      <PropertyRef Name="TYPEID" />
+      <PropertyRef Name="PARTID" />
+    </Key>
+    <Property Name="TYPEID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PARTID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TypeName" Type="varchar" MaxLength="50" />
+    <Property Name="PartName" Type="varchar" MaxLength="50" />
+    <Property Name="TypePartName" Type="varchar" MaxLength="103" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Phone.dbo.ph_birth" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ph_birth">
+    <Key>
+      <PropertyRef Name="FIO" />
+      <PropertyRef Name="Dolzhnost" />
+      <PropertyRef Name="WorkPhone" />
+      <PropertyRef Name="DepShortName" />
+      <PropertyRef Name="EntShortName" />
+    </Key>
+    <Property Name="BirthDay" Type="int" />
+    <Property Name="BirthMonth" Type="int" />
+    <Property Name="age" Type="int" />
+    <Property Name="FIO" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Dolzhnost" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="WorkPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepShortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntShortName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Phone.dbo.ph_infoview" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ph_infoview">
+    <Key>
+      <PropertyRef Name="PHID" />
+      <PropertyRef Name="DEPID" />
+      <PropertyRef Name="ENTID" />
+      <PropertyRef Name="EntName" />
+      <PropertyRef Name="EntShortName" />
+      <PropertyRef Name="EntAddress" />
+      <PropertyRef Name="EntPhoneKod" />
+      <PropertyRef Name="ParentGptn" />
+      <PropertyRef Name="DepName" />
+      <PropertyRef Name="DepShortName" />
+      <PropertyRef Name="Dolzhnost" />
+      <PropertyRef Name="FIO" />
+      <PropertyRef Name="WorkPhoneCity" />
+      <PropertyRef Name="WorkPhone" />
+      <PropertyRef Name="HomePhoneCity" />
+      <PropertyRef Name="HomePhone" />
+      <PropertyRef Name="EMail" />
+      <PropertyRef Name="Peiger" />
+      <PropertyRef Name="FullInfo" />
+    </Key>
+    <Property Name="PHID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DEPID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ENTID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EntName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EntShortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EntPhoneKod" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ParentGptn" Type="int" Nullable="false" />
+    <Property Name="DepName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DepShortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dolzhnost" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="FIO" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="WorkPhoneCity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HomePhoneCity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Peiger" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BirthDayDate" Type="datetime" />
+    <Property Name="StartWorkDate" Type="datetime" />
+    <Property Name="PhotoImg" Type="varchar" MaxLength="150" />
+    <Property Name="FullInfo" Type="varchar" MaxLength="973" Nullable="false" />
+    <Property Name="DEPKAT" Type="int" />
+    <Property Name="ENTKAT" Type="int" />
+    <Property Name="KAT" Type="int" />
+  </EntityType>
+  <Association Name="FK_link_main_link_parts">
+    <End Role="link_parts" Type="Self.link_parts" Multiplicity="1" />
+    <End Role="link_main" Type="Self.link_main" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="link_parts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="link_main">
+        <PropertyRef Name="PARTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_link_parts_link_type">
+    <End Role="link_type" Type="Self.link_type" Multiplicity="1" />
+    <End Role="link_parts" Type="Self.link_parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="link_type">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="link_parts">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ph_department_ph_enterprise">
+    <End Role="ph_enterprise" Type="Self.ph_enterprise" Multiplicity="1" />
+    <End Role="ph_department" Type="Self.ph_department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ph_enterprise">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ph_department">
+        <PropertyRef Name="ENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ph_main_ph_department">
+    <End Role="ph_department" Type="Self.ph_department" Multiplicity="1" />
+    <End Role="ph_main" Type="Self.ph_main" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ph_department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ph_main">
+        <PropertyRef Name="DEPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="aaa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_addtosourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchSourceSafeINI" Type="varchar" Mode="In" />
+    <Parameter Name="vchProjectName" Type="varchar" Mode="In" />
+    <Parameter Name="vchComment" Type="varchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_addtosourcecontrol_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchSourceSafeINI" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchProjectName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="dt_adduserobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_adduserobject_vcs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchProperty" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_checkinobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+    <Parameter Name="vchComment" Type="varchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+    <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+    <Parameter Name="iActionFlag" Type="int" Mode="In" />
+    <Parameter Name="txStream1" Type="text" Mode="In" />
+    <Parameter Name="txStream2" Type="text" Mode="In" />
+    <Parameter Name="txStream3" Type="text" Mode="In" />
+  </Function>
+  <Function Name="dt_checkinobject_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+    <Parameter Name="iActionFlag" Type="int" Mode="In" />
+    <Parameter Name="txStream1" Type="text" Mode="In" />
+    <Parameter Name="txStream2" Type="text" Mode="In" />
+    <Parameter Name="txStream3" Type="text" Mode="In" />
+  </Function>
+  <Function Name="dt_checkoutobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+    <Parameter Name="vchComment" Type="varchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+    <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+    <Parameter Name="iActionFlag" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_checkoutobject_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+    <Parameter Name="iActionFlag" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_displayoaerror" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iObject" Type="int" Mode="In" />
+    <Parameter Name="iresult" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_displayoaerror_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iObject" Type="int" Mode="In" />
+    <Parameter Name="iresult" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_droppropertiesbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_dropuserobjectbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_generateansiname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="dt_getobjwithprop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_getobjwithprop_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="uvalue" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="dt_getpropertiesbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_getpropertiesbyid_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_getpropertiesbyid_vcs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="dt_getpropertiesbyid_vcs_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="dt_isundersourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+    <Parameter Name="iWhoToo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_isundersourcecontrol_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="iWhoToo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_removefromsourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_setpropertybyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="varchar" Mode="In" />
+    <Parameter Name="lvalue" Type="image" Mode="In" />
+  </Function>
+  <Function Name="dt_setpropertybyid_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="uvalue" Type="nvarchar" Mode="In" />
+    <Parameter Name="lvalue" Type="image" Mode="In" />
+  </Function>
+  <Function Name="dt_validateloginparams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_validateloginparams_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="dt_vcsenabled" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_verstamp006" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_verstamp007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_whocheckedout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_whocheckedout_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище PhoneModelContainer">
+    <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="link_main" EntityType="Self.link_main" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="link_parts" EntityType="Self.link_parts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="link_type" EntityType="Self.link_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ph_department" EntityType="Self.ph_department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ph_enterprise" EntityType="Self.ph_enterprise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ph_main" EntityType="Self.ph_main" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phone" EntityType="Self.Phone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_News" EntityType="Self.S_News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bd_remain" EntityType="Self.bd_remain" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [bd_remain].[PHID] AS [PHID], 
+    [bd_remain].[DEPID] AS [DEPID], 
+    [bd_remain].[ENTID] AS [ENTID], 
+    [bd_remain].[EntName] AS [EntName], 
+    [bd_remain].[EntShortName] AS [EntShortName], 
+    [bd_remain].[EntAddress] AS [EntAddress], 
+    [bd_remain].[EntPhoneKod] AS [EntPhoneKod], 
+    [bd_remain].[ParentGptn] AS [ParentGptn], 
+    [bd_remain].[DepName] AS [DepName], 
+    [bd_remain].[DepShortName] AS [DepShortName], 
+    [bd_remain].[Dolzhnost] AS [Dolzhnost], 
+    [bd_remain].[FIO] AS [FIO], 
+    [bd_remain].[WorkPhoneCity] AS [WorkPhoneCity], 
+    [bd_remain].[WorkPhone] AS [WorkPhone], 
+    [bd_remain].[HomePhoneCity] AS [HomePhoneCity], 
+    [bd_remain].[HomePhone] AS [HomePhone], 
+    [bd_remain].[EMail] AS [EMail], 
+    [bd_remain].[Peiger] AS [Peiger], 
+    [bd_remain].[BirthDayDate] AS [BirthDayDate], 
+    [bd_remain].[StartWorkDate] AS [StartWorkDate], 
+    [bd_remain].[PhotoImg] AS [PhotoImg], 
+    [bd_remain].[FullInfo] AS [FullInfo], 
+    [bd_remain].[DEPKAT] AS [DEPKAT], 
+    [bd_remain].[ENTKAT] AS [ENTKAT], 
+    [bd_remain].[KAT] AS [KAT], 
+    [bd_remain].[Age] AS [Age], 
+    [bd_remain].[RemainDay] AS [RemainDay], 
+    [bd_remain].[DateThisYear] AS [DateThisYear], 
+    [bd_remain].[BDay] AS [BDay], 
+    [bd_remain].[BMonth] AS [BMonth]
+    FROM [dbo].[bd_remain] AS [bd_remain]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="link_typepart" EntityType="Self.link_typepart" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [link_typepart].[TYPEID] AS [TYPEID], 
+    [link_typepart].[PARTID] AS [PARTID], 
+    [link_typepart].[TypeName] AS [TypeName], 
+    [link_typepart].[PartName] AS [PartName], 
+    [link_typepart].[TypePartName] AS [TypePartName]
+    FROM [dbo].[link_typepart] AS [link_typepart]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ph_birth" EntityType="Self.ph_birth" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ph_birth].[BirthDay] AS [BirthDay], 
+    [ph_birth].[BirthMonth] AS [BirthMonth], 
+    [ph_birth].[age] AS [age], 
+    [ph_birth].[FIO] AS [FIO], 
+    [ph_birth].[Dolzhnost] AS [Dolzhnost], 
+    [ph_birth].[WorkPhone] AS [WorkPhone], 
+    [ph_birth].[DepShortName] AS [DepShortName], 
+    [ph_birth].[EntShortName] AS [EntShortName]
+    FROM [dbo].[ph_birth] AS [ph_birth]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ph_infoview" EntityType="Self.ph_infoview" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ph_infoview].[PHID] AS [PHID], 
+    [ph_infoview].[DEPID] AS [DEPID], 
+    [ph_infoview].[ENTID] AS [ENTID], 
+    [ph_infoview].[EntName] AS [EntName], 
+    [ph_infoview].[EntShortName] AS [EntShortName], 
+    [ph_infoview].[EntAddress] AS [EntAddress], 
+    [ph_infoview].[EntPhoneKod] AS [EntPhoneKod], 
+    [ph_infoview].[ParentGptn] AS [ParentGptn], 
+    [ph_infoview].[DepName] AS [DepName], 
+    [ph_infoview].[DepShortName] AS [DepShortName], 
+    [ph_infoview].[Dolzhnost] AS [Dolzhnost], 
+    [ph_infoview].[FIO] AS [FIO], 
+    [ph_infoview].[WorkPhoneCity] AS [WorkPhoneCity], 
+    [ph_infoview].[WorkPhone] AS [WorkPhone], 
+    [ph_infoview].[HomePhoneCity] AS [HomePhoneCity], 
+    [ph_infoview].[HomePhone] AS [HomePhone], 
+    [ph_infoview].[EMail] AS [EMail], 
+    [ph_infoview].[Peiger] AS [Peiger], 
+    [ph_infoview].[BirthDayDate] AS [BirthDayDate], 
+    [ph_infoview].[StartWorkDate] AS [StartWorkDate], 
+    [ph_infoview].[PhotoImg] AS [PhotoImg], 
+    [ph_infoview].[FullInfo] AS [FullInfo], 
+    [ph_infoview].[DEPKAT] AS [DEPKAT], 
+    [ph_infoview].[ENTKAT] AS [ENTKAT], 
+    [ph_infoview].[KAT] AS [KAT]
+    FROM [dbo].[ph_infoview] AS [ph_infoview]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_link_main_link_parts" Association="Self.FK_link_main_link_parts">
+      <End Role="link_parts" EntitySet="link_parts" />
+      <End Role="link_main" EntitySet="link_main" />
+    </AssociationSet>
+    <AssociationSet Name="FK_link_parts_link_type" Association="Self.FK_link_parts_link_type">
+      <End Role="link_type" EntitySet="link_type" />
+      <End Role="link_parts" EntitySet="link_parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ph_department_ph_enterprise" Association="Self.FK_ph_department_ph_enterprise">
+      <End Role="ph_enterprise" EntitySet="ph_enterprise" />
+      <End Role="ph_department" EntitySet="ph_department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ph_main_ph_department" Association="Self.FK_ph_main_ph_department">
+      <End Role="ph_department" EntitySet="ph_department" />
+      <End Role="ph_main" EntitySet="ph_main" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

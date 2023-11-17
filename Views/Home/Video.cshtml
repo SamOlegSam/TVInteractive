@@ -1,0 +1,28 @@
+﻿
+<a style="font-size:200%" class="dropbtn btn btn-primary btn-lg" href="/Home/Index/">назад</a>
+<div>
+    <video width="1000" height="700" controls="controls" autoplay>
+        <source src="/Images/Video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+
+    </video>
+
+</div>
+
+<script type="text/javascript">
+        var no_active_delay = 600; // Количество секунд простоя мыши, при котором пользователь считается неактивным
+        var now_no_active = 0; // Текущее количество секунд простоя мыши
+        setInterval("now_no_active++;", 1000); // Каждую секунду увеличиваем количество секунд простоя мыши
+        setInterval("updateChat()", 1000); // Запускаем функцию updateChat() через определённый интервал
+        document.ontouchend = activeUser; // Ставим обработчик на движение курсора мыши
+  function activeUser() {
+            now_no_active = 0; // Обнуляем счётчик простоя секунд
+      }
+  function updateChat() {
+      if (now_no_active >= no_active_delay) { // Проверяем не превышен ли "предел активности" пользователя
+        window.location = '/Home/Index';
+            
+        return;
+      }
+      /* Обновляем чат */
+    }
+</script>
